@@ -1,6 +1,6 @@
 {
   "name": "@raffaeleparisi/payload-base64-plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Payload CMS plugin for automatic base64 encoding of images",
   "main": "lib/index.js",
   "scripts": {
@@ -20,6 +20,9 @@
   "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/leonardstruck/payload-base64-plugin/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "homepage": "https://github.com/leonardstruck/payload-base64-plugin#readme",
   "dependencies": {
