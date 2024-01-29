@@ -88,7 +88,7 @@ const generateBase64 =
               ...webpackConfig.resolve,
               alias: {
                 ...webpackConfig.resolve?.alias,
-                'payload-base64-plugin': path.resolve(
+                '@raffaeleparisi/payload-base64-plugin': path.resolve(
                   __dirname,
                   './mock-plugin',
                 ),
