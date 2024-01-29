@@ -8,7 +8,7 @@ Payload CMS plugin for automatic base64 encoding of images.
 2. Add the plugin to your `payload.config.ts`:
 
 ```ts
-import generateBase64 from 'payload-blurhash-plugin';
+import generateBase64 from 'payload-base64-plugin';
 
 export default buildConfig({
   /* ... */

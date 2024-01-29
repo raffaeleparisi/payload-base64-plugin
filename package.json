@@ -1,12 +1,12 @@
 {
-  "name": "payload-base64-plugin",
+  "name": "@raffaeleparisi/payload-base64-plugin",
   "version": "1.2.0",
   "description": "Payload CMS plugin for automatic base64 encoding of images",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
-    "prepare": "yarn build",
+    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [

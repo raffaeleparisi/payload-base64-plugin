@@ -1,6 +1,8 @@
 import { Config } from 'payload/config';
-import { CollectionConfig } from 'payload/types';
-import { BeforeChangeHook } from 'payload/dist/globals/config/types';
+import type {
+  CollectionConfig,
+  CollectionBeforeChangeHook,
+} from 'payload/types';
 import * as path from 'path';
 
 import { getPlaiceholder } from 'plaiceholder';
@@ -28,20 +30,26 @@ export interface Base64PluginOptions {
 const generateBase64 =
   ({ collections, size = 4, removeAlpha = true }: Base64PluginOptions = {}) =>
   (incomingConfig: Config): Config => {
-    const hook: BeforeChangeHook = async ({ data, req }) => {
-      if (!req.collection) {
+    const hook: CollectionBeforeChangeHook = async ({
+      data,
+      req,
+      operation,
+    }) => {
+      if (operation !== 'create' && !req.collection) {
         return data;
       }
 
-      const { base64 } = await getPlaiceholder(req.files.file.data, {
-        size,
-        removeAlpha,
-      });
+      if (req.files.file.data) {
+        const { base64 } = await getPlaiceholder(req.files.file.data, {
+          size,
+          removeAlpha,
+        });
 
-      return {
-        ...data,
-        base64,
-      };
+        return {
+          ...data,
+          base64,
+        };
+      }
     };
 
     return {
